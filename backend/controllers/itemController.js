@@ -73,3 +73,22 @@ module.exports.update_Item = (req, res) =>{
         })
 
 }
+
+//delete Item
+module.exports.delete_Item = (req, res)=>{
+    const id = req.params.id;
+    item.findByIdAndDelete(id)
+        .then(()=>{
+            res.status(200)
+                .send({
+                    status : 'Item deleted'
+                })
+        })
+        .catch((err)=>{
+            res.status(500)
+                .send({
+                    status: 'Error when deleting the item',
+                    error: err.message
+                })
+        })
+}
