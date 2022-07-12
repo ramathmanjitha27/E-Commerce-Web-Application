@@ -21,3 +21,16 @@ module.exports.add_Item = (req, res)=> {
         console.log(err);
     })
 }
+
+//get all items
+module.exports.get_Item =   (req, res)=>{
+   item.find()
+       .then((items)=>{
+         res.json({success:true, existingPost : items})
+       })
+       .catch((err)=>{
+           res.json(err)
+       })
+}
+
+//get item by id

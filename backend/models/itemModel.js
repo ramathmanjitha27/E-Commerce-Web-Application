@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
-const {text} = require("express");
 const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
     title : {
-        type : text,
+        type : String,
         required :true
     },
     description :{
-        type : text,
+        type : String,
         required: true
     },
     price : {
