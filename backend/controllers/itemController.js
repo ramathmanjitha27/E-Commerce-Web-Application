@@ -26,7 +26,7 @@ module.exports.add_Item = (req, res)=> {
 module.exports.get_Item =   (req, res)=>{
    item.find()
        .then((items)=>{
-         res.json({success:true, existingPost : items})
+         res.json({success:true, items})
        })
        .catch((err)=>{
            res.json(err)
@@ -34,3 +34,13 @@ module.exports.get_Item =   (req, res)=>{
 }
 
 //get item by id
+module.exports.get_Item_by_id = (req, res) => {
+    const id = req.params.id;
+    item.findById({_id: id})
+        .then((foundItem)=>{
+            res.json({success: true,  foundItem})
+        })
+        .catch((err)=>{
+            res.json(err)
+        })
+}
