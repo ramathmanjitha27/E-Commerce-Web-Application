@@ -44,3 +44,32 @@ module.exports.get_Item_by_id = (req, res) => {
             res.json(err)
         })
 }
+
+//update item
+module.exports.update_Item = (req, res) =>{
+    const id = req.params.id;
+    let {title, description, price, quantity} = req.body;
+
+    const updateItem = {
+        title,
+        description,
+        price,
+        quantity
+    }
+
+    item.findByIdAndUpdate(id, updateItem)
+        .then(()=>{
+            res.status(200)
+                .send({
+                    status : 'Item updated',
+                })
+        })
+        .catch((err)=>{
+            res.status(200)
+                .send({
+                    status : 'Error when updating item',
+                    error : err.message
+                })
+        })
+
+}
