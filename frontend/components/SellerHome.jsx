@@ -8,6 +8,11 @@ export default function SellerHome(){
             <Link to={'/addItem'}>
                 <button>Add Item</button>
             </Link>
+            <br/><br/>
+
+            <Link to={'/viewItems'}>
+                <button>View Items</button>
+            </Link>
 
         </div>
     )
