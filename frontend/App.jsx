@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import SellerHome from "./components/SellerHome";
 import AddItem from "./components/AddItem";
 import ViewItems from "./components/ViewItems";
+import EditItem from "./components/EditItem";
 
 export default function App(){
     return(
@@ -15,6 +16,7 @@ export default function App(){
                 <Route path={'/seller'} element={<SellerHome/>}/>
                 <Route path={'/addItem'} element={<AddItem/>}/>
                 <Route path={'/viewItems'} element={<ViewItems/>}/>
+                <Route path={'/editItem'} element={<EditItem/>}/>
             </Routes>
         </BrowserRouter>
       </div>

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 export default function ViewItems(){
 
@@ -34,6 +35,17 @@ export default function ViewItems(){
                 </thead>
                 <tbody>
                 {items.map((item, index)=>{
+
+                    const passItem = (item)=>{
+                    let { _id, title, description, quantity, price} = item;
+
+                    localStorage.setItem('id', _id);
+                    localStorage.setItem('title', title);
+                    localStorage.setItem('description', description)
+                    localStorage.setItem('quantity', quantity)
+                    localStorage.setItem('price', price)
+                    }
+
                     return(
                         <tr>
                             <td id={"index"}>{index+1}</td>
@@ -41,6 +53,12 @@ export default function ViewItems(){
                             <td>{item.description}</td>
                             <td>{item.price}</td>
                             <td>{item.quantity}</td>
+
+                            <td>
+                                <Link to={'/editItem'}>
+                                    <button onClick={()=>passItem(item)}>Edit</button>
+                                </Link>
+                            </td>
                         </tr>
                     )
                 })}

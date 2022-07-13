@@ -14,6 +14,11 @@ export default function SellerHome(){
                 <button>View Items</button>
             </Link>
 
+            <br/><br/>
+            <Link to={'/editItem'}>
+                <button>Edit Item</button>
+            </Link>
+
         </div>
     )
 }
